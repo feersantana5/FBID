@@ -1,0 +1,84 @@
+version: "3"
+services:
+
+  zookeeper:
+    container_name: zookeeper
+    image: wurstmeister/zookeeper
+    ports:
+      - "2181:2181"
+    hostname: zookeeper
+    networks:
+      - red1
+
+
+  kafka:
+    container_name: kafka
+    image: wurstmeister/kafka:2.12-2.3.0
+    ports:
+      - "9092:9092"
+    depends_on:
+      - zookeeper
+    hostname: kafka
+    environment:
+
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_CREATE_TOPICS: "flight_delay_classification_request:1:1"
+    networks:
+      - red1
+    
+
+  mongo:
+    container_name: mongo
+    image: mongo:4.4.2
+    ports:
+      - "27017:27017"
+    depends_on:
+      - kafka
+    hostname: mongo
+    networks:
+      - red1
+
+  mongo_data:
+    image: nacho/mongo_data
+    container_name: mongo_data
+    depends_on:
+      - mongo
+    networks:
+      - red1
+    environment:
+      - MONGO_HOST=mongo
+      - MONGO_PORT=27017
+    command:
+      - "mongoimport --host mongo --port 27017 -d agile_data_science -c origin_dest_distances --mode upsert --type json --file /origin_dest_distances.jsonl"
+    
+
+  flask:
+    container_name: flask
+    image: nacho/flask
+    ports:
+      - "5000:5000"
+      - "9200:9200"
+    depends_on:
+      - mongo_data
+      - spark
+    hostname: flask
+    networks:
+      - red1
+
+  spark:
+    image: nacho/spark
+    container_name: spark
+    ports:
+      - "7077:7077"
+    depends_on:
+      - kafka
+      - mongo_data
+    hostname: spark
+    networks:
+      - red1
+
+networks:
+  red1:
+    driver : bridge
