@@ -89,6 +89,7 @@ wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | apt-key add -
 echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-4.4.list
 apt -yq update
 apt -yq install mongodb-org
+echo 'lanzamos el servicio mongo'
 systemctl start mongod.service
 ```
 + Spark para el procesamiento de datos en streaming.
