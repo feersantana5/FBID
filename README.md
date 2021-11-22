@@ -4,7 +4,10 @@ Para la ejecución de la práctica se ha desplegado una máquina virtual con la 
 # 📝 Objetivos
 Tenemos un dataset (todos los vuelos desde 2015) que contiene información de vuelos pasados, incluyendo si han salido con retraso o no. A partir de esta información, queremos predecir si va a haber retrasos en un vuelo futuro.
 
-![Arquitectura Front-end](https://github.com/ging/practica_big_data_2019/raw/master/images/back_end_realtime_architecture.png)
+
+<p align="center">
+<img src="https://github.com/ging/practica_big_data_2019/raw/master/images/front_end_realtime_architecture.png" title="Arquitectura Front-end" />
+</p>
 
 ### Arquitectura Front-end
 El diagrama anterior muestra cómo funciona la arquitectura front-end de la aplicación de predicción de retrasos de vuelo:
@@ -16,7 +19,9 @@ El diagrama anterior muestra cómo funciona la arquitectura front-end de la apli
 5.	Una vez que los datos están disponibles en Mongo, la siguiente solicitud del cliente los recoge. 
 6.	¡Finalmente, el cliente muestra el resultado de la predicción al usuario!
 
-![Arquitectura Back-end](https://github.com/ging/practica_big_data_2019/raw/master/images/front_end_realtime_architecture.png)
+<p align="center">
+<img src="https://github.com/ging/practica_big_data_2019/raw/master/images/back_end_realtime_architecture.png" title="Arquitectura Back-end"/>
+</p>
 
 ### Arquitectura Back-end
 El diagrama de la arquitectura de back-end nos permite entender cómo entrenamos un modelo de clasificador con el dataset en disco (HDFS o Amazon S3, etc.) para predecir retrasos en los vuelos por batchs en Spark. Esta arquitectura es extremadamente poderosa y es un gran beneficio que podamos usar el mismo código por lotes y en tiempo real con PySpark Streaming. Para ello seguimos los siguientes pasos:
@@ -136,7 +141,9 @@ python resources/train_spark_mllib_model.py .
 ls ../models
 ```
 
-IMAGEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+<p align="center">
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%201.png" title="Modelos"/>
+</p>
 
 Tenemos que desplegar una arquitectura completa que nos permita, utilizando el modelo predictivo que hemos creado, realizar predicciones en tiempo real para nuevos vuelos.
 
@@ -211,7 +218,9 @@ python predict_flask.py
 ### 🗂 Resultados
 Finalmente, obtenemos la respuesta en el navegador. A través de la consola de Javascript podemos monitorizar el proceso.
 
-IMAGEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+<p align="center">
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%203.png" title="Servidor"/>
+</p>
 
 A través de mongo verificamos los registros de predicciones insertados en MongoDB:
 
