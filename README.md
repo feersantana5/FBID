@@ -1,7 +1,7 @@
 # FBID
 Para la ejecución de la práctica se ha desplegado una máquina virtual con la versión 20.04 de Ubuntu. </br>
 
-# Objetivos
+# 📝 Objetivos
 Tenemos un dataset (todos los vuelos desde 2015) que contiene información de vuelos pasados, incluyendo si han salido con retraso o no. A partir de esta información, queremos predecir si va a haber retrasos en un vuelo futuro.
 
 ![Arquitectura Front-end](https://github.com/ging/practica_big_data_2019/raw/master/images/back_end_realtime_architecture.png)
@@ -27,10 +27,10 @@ El diagrama de la arquitectura de back-end nos permite entender cómo entrenamos
 4.	Cuando llega una solicitud de predicción, Spark Streaming (el job) realiza la predicción y almacena el resultado en MongoDB, donde la aplicación web puede recogerlo.
 5.	La aplicación web está constantemente haciendo polling sobre la base de datos para comprobar si se ha realizado ya la predicción. En caso afirmativo, se muestra la predicción en la interfaz
 
-## Lograr el funcionamiento de la práctica sin realizar modificaciones (4 ptos)
+## ✅ Lograr el funcionamiento de la práctica sin realizar modificaciones (4 ptos)
 La práctica se ha realizado sobre una máquina virtual con el sistema operativo Ubuntu 20.04. 
 
-### Preparación
+### ⚙️ Preparación
 
 En primer lugar descargamos el repositorio de la practica y ejecutamos los scripts que nos permiten descargar los datos de vuelos pasados y las distancias.
 
@@ -122,7 +122,7 @@ yes | python -m pip install -r requirements.txt
 deactivate
 ```
 
-### Entrenamiento
+### 🧠 Entrenamiento
 Procedemos al entrenamiento del modelo de ML usando el dataset. Para ello, entrenamos un modelo predictivo basado en el algoritmo RandomForest utilizando los datos que tenemos de vuelos antiguos. Todo el proceso de entrenamiento lo vamos a realizar en batch utilizando PySpark. Como resultado tendremos un modelo que para un nuevo vuelo dado, va a predecir si va a tener o no retraso.
 
 En primer lugar es necesario modificar el archivo *~/practica_big_data_2019/flight_prediction/src/main/scala/es/upm/dit/ging/predictor/MakePrediction.scala* donde hemos modificado la línea val base_path. con el directorio de la práctica en nuestro equipo.
@@ -140,7 +140,7 @@ IMAGEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 Tenemos que desplegar una arquitectura completa que nos permita, utilizando el modelo predictivo que hemos creado, realizar predicciones en tiempo real para nuevos vuelos.
 
-### Cola de kafka
+### 📨 Cola de kafka
 Para la transmisión del flujo de datos es necesario lanzar una cola de kafka, sin embargo, es necesario lanzar primero ZooKeeper.
 
 ```
@@ -166,7 +166,7 @@ bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic flight_d
 
 IMAGEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-### Ejecutar el predictor
+### 🔮 Ejecutar el predictor
 Para habilitar el cálculo de predicciones en tiempo real vamos a utilizar Spark Streaming y el modelo predictivo que hemos entrenado anteriormente. Hemos ejecutado el predictor de vuelos de 2 maneras distintas, con:
 
  + IntelliJ
@@ -181,7 +181,7 @@ IMAGEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
  + Spark Submit
 
-## Ejecución del job de predicción con Spark Submit en vez de IntelliJ  (1 pto)
+## ✅ Ejecución del job de predicción con Spark Submit en vez de IntelliJ  (1 pto)
 
 Para desplegar el job de Spark que predice el retraso de los vuelos usando el modelo creado con Spark Submit en vez de IntelliJ,. hemos tenido que compilar el código y crear un JAR usando SBT.
 
@@ -198,7 +198,7 @@ cd ~/practica_big_data_2019/flight_prediction/target/scala-2.12
 $SPARK_HOME/bin/spark-submit --class es.upm.dit.ging.predictor.MakePrediction --master local --packages org.mongodb.spark:mongo-spark-connector_2.12:3.0.1,org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.2 flight_prediction_2.12-0.1.jar
 ```
 
-### Servidor web
+### 🧑🏻‍💻 Servidor web
 Como se ha comentado anteriormente, el servidor web está implementado con Flask, un microframework de Python para desarrollar servicios web sencillos. Para lanzarlo sólo es necesario ejecutar el siguiente script:
 
 ```
@@ -208,7 +208,7 @@ cd ~/practica_big_data_2019/resources/web
 python predict_flask.py
 ```
 
-### Resultados
+### 🗂 Resultados
 Finalmente, obtenemos la respuesta en el navegador. A través de la consola de Javascript podemos monitorizar el proceso.
 
 IMAGEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -223,13 +223,13 @@ $ mongo
 IMAGEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
-## Dockerizar cada uno de los servicios que componen la arquitectura completa (1 pto)
+## ✅ Dockerizar cada uno de los servicios que componen la arquitectura completa (1 pto)
 
 En este apartado hemos dockerizado, es decir, creado contenedores ligeros de los servicios que forman parte de la arquitectura para facilitar así su ejecución en cualquier máquina con Docker instalado, independientemente del sistema operativo que la máquina tenga por debajo, facilitando así también los despliegues. Para ello, hemos creado un DockerFile para cada servicio:
 
-## Desplegar el escenario completo usando docker-compose (1 pto)
+## ✅ Desplegar el escenario completo usando docker-compose (1 pto)
 
-## Desplegar el escenario completo usando kubernetese (2 ptos)
+## ✅ Desplegar el escenario completo usando kubernetese (2 ptos)
 En primer lugar hemos preparado las herramientas necesarias en la máquina para utilizar kubernetes.
 ```
 sudo apt-get update -y
