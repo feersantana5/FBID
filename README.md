@@ -6,7 +6,7 @@ Tenemos un dataset (todos los vuelos desde 2015) que contiene información de vu
 
 
 <p align="center">
-<img src="https://github.com/ging/practica_big_data_2019/raw/master/images/front_end_realtime_architecture.png" title="Arquitectura Front-end" />
+<img src="https://github.com/ging/practica_big_data_2019/raw/master/images/front_end_realtime_architecture.png" title="Arquitectura Front-end" width="500" height="500" />
 </p>
 
 ### Arquitectura Front-end
@@ -20,7 +20,7 @@ El diagrama anterior muestra cómo funciona la arquitectura front-end de la apli
 6.	¡Finalmente, el cliente muestra el resultado de la predicción al usuario!
 
 <p align="center">
-<img src="https://github.com/ging/practica_big_data_2019/raw/master/images/back_end_realtime_architecture.png" title="Arquitectura Back-end"/>
+<img src="https://github.com/ging/practica_big_data_2019/raw/master/images/back_end_realtime_architecture.png" title="Arquitectura Back-end" width="500" height="200"/>
 </p>
 
 ### Arquitectura Back-end
@@ -142,7 +142,7 @@ ls ../models
 ```
 
 <p align="center">
-<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%201.png" title="Modelos"/>
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%201.png" title="Modelos" width="500" height="150"/>
 </p>
 
 Tenemos que desplegar una arquitectura completa que nos permita, utilizando el modelo predictivo que hemos creado, realizar predicciones en tiempo real para nuevos vuelos.
@@ -219,7 +219,7 @@ python predict_flask.py
 Finalmente, obtenemos la respuesta en el navegador. A través de la consola de Javascript podemos monitorizar el proceso.
 
 <p align="center">
-<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%203.png" title="Servidor"/>
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%203.png" title="Servidor" height="400"/>
 </p>
 
 A través de mongo verificamos los registros de predicciones insertados en MongoDB:
