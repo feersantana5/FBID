@@ -184,7 +184,9 @@ intellij-idea-community
 echo 'Ejecutar el proyecto'
 ```
 
-IMAGEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+<p align="center">
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%204.png" title="IntelliJ" height="300" />
+</p>
 
  + Spark Submit
 
