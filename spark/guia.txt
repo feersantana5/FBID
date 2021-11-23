@@ -1,0 +1,6 @@
+Líneas que cambiar en el MakePrediction ( y después recompilarlo con sbt packages y pegarlo en files/scala..) :
+
+142 cambiar dirección local por mongo en: ...mongodb://mongo:27017/...
+49 cambiar por: .option("kafka.bootstrap.servers", "kafka:9092")
+
+Más de lo mismo que con flask, hay que poner los nombres de los contenedores que exponen los puertos, no vale poner localhost aquí...

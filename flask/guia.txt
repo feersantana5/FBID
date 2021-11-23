@@ -1,0 +1,7 @@
+Cambiar líneas de predict_flask.py:
+
+299--La comentamos ya que obtenemos error de la variable PROJECT_HOME, que según vemos no sirve para nada.
+
+15--Añadimos host='mongo:27017' para que se reconozca dentro de los contenedores.
+
+28--cambiamos la dirección de localhost por kafka para que se reconozca dentro de los contenedores.
