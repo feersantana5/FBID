@@ -273,7 +273,7 @@ echo 'Descargamos docker.io'
 sudo apt install docker.io
 ```
 
-Activar el demonio de docker:
++ Activar el demonio de docker:
 ```
 sudo systemctl enable docker
 sudo service docker start
