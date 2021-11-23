@@ -246,16 +246,16 @@ En el consumidor de kafka podemos ver los mensajes enviados:
 <img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2010.png" title="Kafka" height="150"/>
 </p>
 
-Finalmente hemos comprobado en el navegador que funciona correctamente la mediante con IntelliJ:
+Finalmente hemos comprobado en el navegador que la ejecución funciona correctamente mediante IntelliJ:
 
 <p align="center">
 <img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%209.png" title="IntelliJ" height="300" />
 </p>
 
-Finalmente hemos comprobado en el navegador que funciona correctamente la mediante Spark Submit:
+Finalmente hemos comprobado en el navegador que la ejecución funciona correctamente mediante Spark Submit:
 
 <p align="center">
-<img src="" title="Spark Submit" height="300" />
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2013.png" title="Spark Submit" height="300" />
 </p>
 
 ## ✅ Dockerizar cada uno de los servicios que componen la arquitectura completa (1 pto)
