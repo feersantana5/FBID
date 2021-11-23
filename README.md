@@ -267,6 +267,19 @@ Finalmente hemos comprobado en el navegador que la ejecución funciona correctam
 En este apartado hemos dockerizado, es decir, creado contenedores ligeros de los servicios que forman parte de la arquitectura para facilitar así su ejecución en cualquier máquina con Docker instalado, independientemente del sistema operativo que la máquina tenga por debajo, facilitando así también los despliegues. Para ello, hemos creado un DockerFile en cada servicio para poder crear las imágenes personalizadas de Docker. Hemos creado las imágenes de spark y flask. Las imágenes de mongo, zookeeper y kafka corresponden a mongo:4.42, wurstmeister/zookeeper y wurstmeister/kafka:2.12-2.3.0. Para ejecutar cada servicio se han añadido a la red host por defecto de Docker. Además, ha sido necesario cambiar el hostname de cada imagen por localhost:puerto para habilitar la intercomunicación en la misma red, estas modificacines se han realizado también en predictor.py, MakePrediction.scala y flask.
 Los pasos seguidos han sido:
 
++ Instalar docker:
+```
+echo 'Descargamos docker.io'
+sudo apt install docker.io
+```
+
+Activar el demonio de docker:
+```
+sudo systemctl enable docker
+sudo service docker start
+docker --version
+```
+
 + Parar mongo:
 ```
 systemctl stop mongod.service
