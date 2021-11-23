@@ -270,7 +270,7 @@ En este apartado hemos dockerizado, es decir, creado contenedores ligeros de los
 <img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2016.png" title="Docker" height="300" />
 </p>
 
-### Resultado
+### 🗂 Resultado
 
 <p align="center">
 <img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2015.png" title="Docker result" height="300" />
@@ -303,6 +303,8 @@ Finalmente con el siguiente comando construimos, creamos, iniciamos y conectamos
 ```
 docker-compose up
 ```
+
+### 🗂 Resultado
 
 ## ✅ Desplegar el escenario completo usando kubernetese (2 ptos)
 En primer lugar hemos preparado las herramientas necesarias en la máquina para utilizar kubernetes.
@@ -378,11 +380,13 @@ kubectl port-forward svc/flask 5000:5000
 
 echo 'Acceder a:   http://localhost:5000/flights/delays/predict_kafka'
 ```
+### 🗂 Resultado
 
 ```
 echo 'Borramos el despliegue y hacemos stop a minikube, si quieres hacer remove: minikube delete'
 kubectl delete deployment,pods,svc --all
 minikube stop
 ```
+
 
 ## Desplegar el escenario completo en Google Cloud/AWS (1 pto)
