@@ -268,6 +268,32 @@ En este apartado hemos dockerizado, es decir, creado contenedores ligeros de los
 
 ## ✅ Desplegar el escenario completo usando docker-compose (1 pto)
 
+En primer lugar hemos instalado el Docker Compose:
+```
+echo 'Instalamos docker-compose'
+sudo apt-get install curl
+sudo wget -O /usr/local/bin/docker-compose https://github.com/docker/compose/releases/download/1.28.6/docker-compose-Linux-x86_64
+sudo chmod +x /usr/local/bin/docker-compose
+```
+Una vez instalado Docker Compose se ha construido las imágenes de flask, spark y mongo_data y hecho pull de las demás.
+
+```
+cd flask
+docker build -t ubuntu/flask .
+cd ..
+
+cd spark
+docker build -t ubuntu/spark .
+cd ..
+
+cd mongo_data
+docker build -t ubuntu/mongo_data .
+```
+Finalmente con el siguiente comando construimos, creamos, iniciamos y conectamos los contenedores para ejecutarlos en un servicio.
+```
+docker-compose up
+```
+
 ## ✅ Desplegar el escenario completo usando kubernetese (2 ptos)
 En primer lugar hemos preparado las herramientas necesarias en la máquina para utilizar kubernetes.
 ```
