@@ -1,5 +1,8 @@
 # FBID
 Para la ejecución de la práctica se ha desplegado una máquina virtual con la versión 20.04 de Ubuntu. </br>
+Ignacio Gómez Gómez y Fernando Santana Falcón. </br>
+https://github.com/feersantana5/FBID </br>
+
 
 # 📝 Objetivos
 Tenemos un dataset (todos los vuelos desde 2015) que contiene información de vuelos pasados, incluyendo si han salido con retraso o no. A partir de esta información, queremos predecir si va a haber retrasos en un vuelo futuro.
