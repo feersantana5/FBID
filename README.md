@@ -190,12 +190,6 @@ echo 'Ejecutar el proyecto'
 <img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%204.png" title="IntelliJ" height="300" />
 </p>
 
-Finalmente hemmos comprobado en el navegador http://localhost:5000/flights/delays/predict_kafka que funciona correctamente:
-
-<p align="center">
-<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%209.png" title="IntelliJ" height="300" />
-</p>
-
  + Spark Submit
 
 ## ✅ Ejecución del job de predicción con Spark Submit en vez de IntelliJ  (1 pto)
@@ -236,7 +230,7 @@ Finalmente, obtenemos la respuesta en el navegador. A través de la consola de J
 <img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%203.png" title="Servidor" height="400"/>
 </p>
 
-A través de mongo verificamos los registros de predicciones insertados en MongoDB:
+A través de mongo verificamos los registros de predicciones insertadas en MongoDB:
 
 ```
 $ mongo
@@ -250,6 +244,18 @@ $ mongo
 En el consumidor de kafka podemos ver los mensajes enviados:
 <p align="center">
 <img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2010.png" title="Kafka" height="150"/>
+</p>
+
+Finalmente hemos comprobado en el navegador que funciona correctamente la mediante con IntelliJ:
+
+<p align="center">
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%209.png" title="IntelliJ" height="300" />
+</p>
+
+Finalmente hemos comprobado en el navegador que funciona correctamente la mediante Spark Submit:
+
+<p align="center">
+<img src="" title="Spark Submit" height="300" />
 </p>
 
 ## ✅ Dockerizar cada uno de los servicios que componen la arquitectura completa (1 pto)
