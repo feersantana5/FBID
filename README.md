@@ -209,6 +209,10 @@ cd ~/practica_big_data_2019/flight_prediction/target/scala-2.12
 $SPARK_HOME/bin/spark-submit --class es.upm.dit.ging.predictor.MakePrediction --master local --packages org.mongodb.spark:mongo-spark-connector_2.12:3.0.1,org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.2 flight_prediction_2.12-0.1.jar
 ```
 
+<p align="center">
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2014.png" title="Spark Submit" height="300" />
+</p>
+
 ### 🧑🏻‍💻 Servidor web
 Como se ha comentado anteriormente, el servidor web está implementado con Flask, un microframework de Python para desarrollar servicios web sencillos. Para lanzarlo sólo es necesario ejecutar el siguiente script:
 
