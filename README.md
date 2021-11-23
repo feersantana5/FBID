@@ -50,7 +50,7 @@ resources/download_data.sh
 resources/import_distances.sh
 ```
 
-Continuamos con la preparación del entorno y las aplicaciones necesarias.
+Continuamos con la preparación del entorno y las aplicaciones necesarias:
 
 Añadimos las variables de entorno en  ~/.bashrc:
 
@@ -158,7 +158,7 @@ cd ~/kafka/kafka_2.12-2.3.0/
 bin/kafka-server-start.sh config/server.properties
 ```
 
-Tras arrancar kafka y Zookerper creamos el tópico flight_delay_classification_request y creamos una ventana consumidora del tópico para poder observar los mensajes transmitidos bajo ese tópico. 
+Tras arrancar kafka y Zookerper creamos el tópico flight_delay_classification_request y una ventana con un consumidor del tópico para poder observar los mensajes transmitidos bajo ese tópico. 
 
 ```
 echo 'Creamos el topic: flight_delay_classification_request. Debe aparecer created al final'
@@ -200,7 +200,7 @@ Finalmente hemmos comprobado en el navegador http://localhost:5000/flights/delay
 
 ## ✅ Ejecución del job de predicción con Spark Submit en vez de IntelliJ  (1 pto)
 
-Para desplegar el job de Spark que predice el retraso de los vuelos usando el modelo creado con Spark Submit en vez de IntelliJ,. hemos tenido que compilar el código y crear un JAR usando SBT.
+Para desplegar el job de Spark que predice el retraso de los vuelos usando el modelo creado con Spark Submit en vez de IntelliJ, hemos tenido que compilar el código y crear un JAR usando SBT.
 
 ```
 cd ~/practica_big_data_2019/flight_prediction
@@ -226,7 +226,7 @@ python predict_flask.py
 ```
 
 <p align="center">
-<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%207.png" title="Servidor" height="400"/>
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%207.png" title="Servidor"  height="200"/>
 </p>
 
 ### 🗂 Resultados
@@ -244,12 +244,12 @@ $ mongo
   >db.flight_delay_classification_response.find();
 ```
 <p align="center">
-<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2011.png" title="Mongo"/>
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2011.png" title="Mongo" height="300"/>
 </p>
 
 En el consumidor de kafka podemos ver los mensajes enviados:
 <p align="center">
-<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2010.png" title="Kafka"/>
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2010.png" title="Kafka" width="500" height="150"/>
 </p>
 
 ## ✅ Dockerizar cada uno de los servicios que componen la arquitectura completa (1 pto)
