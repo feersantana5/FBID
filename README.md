@@ -264,11 +264,12 @@ Finalmente hemos comprobado en el navegador que la ejecución funciona correctam
 
 ## ✅ Dockerizar cada uno de los servicios que componen la arquitectura completa (1 pto)
 
-En este apartado hemos dockerizado, es decir, creado contenedores ligeros de los servicios que forman parte de la arquitectura para facilitar así su ejecución en cualquier máquina con Docker instalado, independientemente del sistema operativo que la máquina tenga por debajo, facilitando así también los despliegues. Para ello, hemos creado un DockerFile en cada servicio para poder crear las imágenes personalizadas de Docker. Hemos creado las imágenes de spark, flask y mongo. Las imágenes de zookeeper y kafka corresponden a wurstmeister/zookeeper y wurstmeister/kafka:2.12-2.3.0. Los pasos seguidos han sido:
+En este apartado hemos dockerizado, es decir, creado contenedores ligeros de los servicios que forman parte de la arquitectura para facilitar así su ejecución en cualquier máquina con Docker instalado, independientemente del sistema operativo que la máquina tenga por debajo, facilitando así también los despliegues. Para ello, hemos creado un DockerFile en cada servicio para poder crear las imágenes personalizadas de Docker. Hemos creado las imágenes de spark y flask. Las imágenes de mongo, zookeeper y kafka corresponden a mongo:4.42, wurstmeister/zookeeper y wurstmeister/kafka:2.12-2.3.0. Para ejecutar cada servicio se han añadido a la red host por defecto de Docker. Además, ha sido necesario cambiar el hostname de cada imagen por localhost:puerto para habilitar la intercomunicación en la misma red, estas modificacines se han realizado también en predictor.py, MakePrediction.scala y flask.
+Los pasos seguidos han sido:
 
 + Parar mongo:
 ```
-sudo service mongod stop
+systemctl stop mongod.service
 ```
 + Crear la imagen de spark:
 ```
@@ -278,24 +279,26 @@ docker build -t nacho/spark ./spark
 ```
 docker build -t nacho/flask ./flask
 ```
-+ Crear la imagen de mongo:
++ Generar una instancia de la imagen de mongo y crear el volumen que permita mediante el comando docker exec importar en el contendor las distancias de los vuelos almacenadas en el archivo *ractica_big_data_2019/data/origin_dest_distances.jsonl*:
 ```
-docker build -t nacho/mongo_data ./mongo_data
+docker run --name mongo --volume=/home/dit/practica_big_data_2019/:/practica_big_data_2019 -p 27017:27017 mongo:4.4.2
+docker exec -it mongo mongoimport -d agile_data_science -c origin_dest_distances --file / practica_big_data_2019/data/origin_dest_distances.jsonl
 ```
-+ Genera una instancia de la imagen de mongo:
++ Generar una instancia de la imagen de zookeeper:
 ```
+docker run -h zookeeper --net=host -p 2181:2181 --name zookeeper wurstmeister/zookeeper
 ```
-+ Genera una instancia de la imagen de zookeeper:
++ Generar una instancia de la imagen de kafka:
 ```
+docker run --name kafka --net=host -p 9092=9092 -e KAFKA_ADVERTISED_LISTENERS='PLAINTEXT://-localhost:9092' -e KAFKA_LISTENERS='PLAINTEXT://-localhost:9092' -e KAFKA_CREATE_TOPICS='"flight_delay_classification_request:1:1"' -e KAFKA_ZOOKEEPER_CONNECT='localhost:2181' -h wurstmeister/kafka:2.12-2.3.0
 ```
-+ Genera una instancia de la imagen de kafka:
++ Generar una instancia de la imagen de spark:
 ```
+docker run --name spark --net=host nacho/spark
 ```
-+ Genera una instancia de la imagen de spark:
++ Generar una instancia de la imagen de flask:
 ```
-```
-+ Genera una instancia de la imagen de flask:
-```
+docker run --name flask -p 5000:5000 nacho/flask
 ```
 
 <p align="center">
@@ -304,7 +307,7 @@ docker build -t nacho/mongo_data ./mongo_data
 
 ### 🗂 Resultado
 
-Finalmente observamos en el navegador el funcionamiento de aplicación con los contenedores desplegados:
+Finalmente observamos en el navegador el funcionamiento de la práctica con los contenedores desplegados:
 
 <p align="center">
 <img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2015.png" title="Docker result" height="300" />
@@ -319,7 +322,7 @@ sudo apt-get install curl
 sudo wget -O /usr/local/bin/docker-compose https://github.com/docker/compose/releases/download/1.28.6/docker-compose-Linux-x86_64
 sudo chmod +x /usr/local/bin/docker-compose
 ```
-Una vez instalado Docker Compose se ha construido las imágenes de flask, spark y mongo_data y hecho pull de las demás.
+Una vez instalado Docker Compose se han construido las imágenes de flask, spark y hecho pull de las demás al igual que se hizo en el anterior apartado (sólo hacer en caso de no haberlo realizado). Sin embargo, en este apartado se ha construido una imagen mongo_data para alimentar el contenedor de mongo. Su finalidad es sustituir el comando docker exec utilizado en el apartado anterior y poder desplegar el escenario con mayor facilidad.
 
 ```
 cd flask
@@ -339,6 +342,10 @@ docker-compose up
 ```
 
 ### 🗂 Resultado
+
+<p align="center">
+<img src="" title="Docker compose" height="300" />
+</p>
 
 ## ✅ Desplegar el escenario completo usando kubernetese (2 ptos)
 En primer lugar hemos preparado las herramientas necesarias en la máquina para utilizar kubernetes.
