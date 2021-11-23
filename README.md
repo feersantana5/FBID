@@ -411,6 +411,10 @@ kubectl version
 sudo usermod -aG docker $USER && newgrp docker
 minikube start
 ```
+<p align="center">
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2023.png" title="Minikube" height="300" />
+</p>
+
 + kompose es una herramienta que nos permite con el archivo docker-compose del apartado anterior, la implementación en clústeres de Kubernetes convirtiendo el recurso autoáticamente.
 ```
 #Descargamos kompose
@@ -446,12 +450,17 @@ Una vez se ha ejecutado todo correctamente, exponemos el puerto en el que se enc
 kubectl port-forward svc/flask 5000:5000
 ```
 
+<p align="center">
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2024.png" title="kb8" height="300" />
+</p>
+
 ### 🗂 Resultado
 
 Finalmente observamos en el navegador el funcionamiento de la práctica tras ser desplegada con kubernetes:
 
+
 <p align="center">
-<img src="" title="kubernetes" height="300" />
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2025.png" title="kb8" height="300" />
 </p>
 
 Para finalizar borramos el despliegue y paramos, o en caso deseado, borramos el cluster de kubernetes:
