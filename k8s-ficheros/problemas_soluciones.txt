@@ -1,0 +1,64 @@
+------------------------------------
+SOLVED
+
+https://github.com/kubernetes/kompose/issues/1294
+Problema con versión de la network solucionar poniendo: apiVersion: networking.k8s.io/v1
+
+---------------------------------------
+SOLVED
+
+https://www.it-swarm-es.com/es/docker/tire-de-una-imagen-local-para-ejecutar-un-pod-en-kubernetes/827931938/
+Problema con las imágenes locales de docker, en vez de tener que subirlas a dockerhub
+podemos cogerlas localmente, como estábamos haciendo antes, tenemos que poner en cada
+fichero de deploy ( de las imágenes locales)  la línea:
+
+imagePullPolicy: IfNotPresent
+
+Además de ejecutar:
+eval $(minikube docker-env)
+
+Esto para que busque en el demonio de docker las imágenes previamente construidas
+con docker build -t nacho/... .
+En los casos de mongo_data, flask y de spark.
+
+OTRA OPCIÓN: subir las imágenes a dockerhub, pero como estamos haciendolo con build
+localmente, seguimos por ese camino.
+
+------------------------------------------
+TODO:
+
+https://stackoverflow.com/questions/39893238/kubernetes-how-to-run-job-only-once/39894448#39894448
+
+Mongo_data se reinicia todo el rato fedeando la base de datos, esto es ineficiente,
+He probado con poner Never en el restart, o OnFailure, pero no me lo permite, solo
+me permite poner Always. Ahí indican cómo crear un pod de one-try, pero creo que no es
+la manera que buscamos. Hay que investigar esto para que sea más eficiente.
+
+-------------------------------------------
+SOLVED
+
+https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/
+
+Tenemos que exponer el servicio de flask para poder ser accedido desde fuera ( navegador )
+para ello ejecutamos:
+
+Comprobamos el puerto del servicio que queremos exponer:
+kubectl get service flask
+
+kubectl port-forward svc/flask 5000:5000
+
+Y así podemos acceder desde firefox a:
+
+http://localhost:5000/flights/delays/predict_kafka
+
+--------------------------------------------
+SOLVED
+Añadimos a:
+
+kafka-deployment.yaml
+
+- name: KAFKA_PORT
+  value: "9092"
+          
+Para declarar el puerto de KAFKA, ya que parece que los env que se crean con kompose no
+son suficiente, o no funcionan.

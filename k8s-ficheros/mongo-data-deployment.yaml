@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: mongo-data
+  name: mongo-data
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: mongo-data
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.21.0 (992df58d8)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/red1: "true"
+        io.kompose.service: mongo-data
+    spec:
+      containers:
+      - args:
+        - mongoimport --host mongo --port 27017 -d agile_data_science -c origin_dest_distances
+          --mode upsert --type json --file /origin_dest_distances.jsonl
+        env:
+        - name: MONGO_HOST
+          value: mongo
+        - name: MONGO_PORT
+          value: "27017"
+        image: nacho/mongo_data
+        imagePullPolicy: IfNotPresent
+        name: mongo-data
+        resources: {}
+      restartPolicy: Always
+      serviceAccountName: ""
+      volumes: null
+status: {}

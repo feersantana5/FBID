@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: flask
+  name: flask
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: flask
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.21.0 (992df58d8)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/red1: "true"
+        io.kompose.service: flask
+    spec:
+      containers:
+      - image: nacho/flask
+        imagePullPolicy: IfNotPresent
+        name: flask
+        ports:
+        - containerPort: 5000
+        - containerPort: 9200
+        resources: {}
+      hostname: flask
+      restartPolicy: Always
+      serviceAccountName: ""
+      volumes: null
+status: {}
