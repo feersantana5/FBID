@@ -349,17 +349,36 @@ cd ..
 cd mongo_data
 docker build -t nacho/mongo_data .
 ```
+<p align="center">
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2018.png" title="Docker compose" height="300"/>
+</p>
+
 Finalmente con el siguiente comando construimos, creamos, iniciamos y conectamos los contenedores para ejecutarlos en un servicio.
 ```
 docker-compose up
 ```
+<p align="center">
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2019.png" title="Docker compose"  height="300"/>
+</p>
 
 ### 🗂 Resultado
+
+Verificamos que las imagenes hayan sido descargadas por docker:
+
+<p align="center">
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2021.png" title="Docker compose" height="300" />
+</p>
+
+Verificamos que los contenedores se han creado:
+
+<p align="center">
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2022.png" title="Docker compose" height="300" />
+</p>
 
 Finalmente observamos en el navegador el funcionamiento de la práctica tras ser desplegada con el docker-compose:
 
 <p align="center">
-<img src="" title="Docker compose" height="300" />
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2020.png" title="Docker compose" height="300" />
 </p>
 
 ## ✅ Desplegar el escenario completo usando kubernetes (2 ptos)
