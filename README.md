@@ -343,11 +343,13 @@ docker-compose up
 
 ### 🗂 Resultado
 
+Finalmente observamos en el navegador el funcionamiento de la práctica tras ser desplegada con el docker-compose:
+
 <p align="center">
 <img src="" title="Docker compose" height="300" />
 </p>
 
-## ✅ Desplegar el escenario completo usando kubernetese (2 ptos)
+## ✅ Desplegar el escenario completo usando kubernetes (2 ptos)
 En primer lugar hemos preparado las herramientas necesarias en la máquina para utilizar kubernetes.
 ```
 sudo apt-get update -y
@@ -389,45 +391,42 @@ kompose versión
 cd k8s-ficheros
 kompose convert
 ```
+Una vez obtenido los ficheros yaml, ejecutamos el siguiente comando para conectarnos al demonio de docker y acceder a las imágenes sin tener que acceder a docker hub para obtener las imágenes.
+
 ```
 #Para evitar errores de permisos
 sudo usermod -aG docker $USER && newgrp docker
-
-echo 'Ejecutamos lo siguiente para conectarnos al demonio de docker y acceder a las imágenes'
-echo 'Así no hay que acceder a docker/hub para las imágenes'
 eval $(minikube docker-env)
 ```
+En el directorio donde se encuentran los archivos .yaml, ejecutamos el siguiente comando para crear los objetos definidos en los archivos de configuración:
 ```
-echo 'IMPORTANTE: Las imágenes deben haber sido previamente construidas!'
-
-echo 'Debemos estar en la carpeta donde están los ficheros yaml'
 kubectl apply -f red1-networkpolicy.yaml,zookeeper-service.yaml,kafka-service.yaml,mongo-service.yaml,spark-service.yaml,flask-service.yaml,zookeeper-deployment.yaml,kafka-deployment.yaml,mongo-deployment.yaml,mongo-data-deployment.yaml,spark-deployment.yaml,flask-deployment.yaml
-
+```
+Desplegamos los recursos:
+```
 echo 'Desplegamos la información'
 kubectl get deployment,svc,pods
-
-echo 'Esperamos 1 minuto'
-sleep 20s
-echo '20 segundos'
-sleep 20s
-echo '40 segundos'
-sleep 20s
-echo '60 segundos'
-echo 'YA!'
-
-echo 'Una vez se haya ejecutado todo correctamente, ejecutamos: kubectl port-forward svc/flask 5000:5000'
-echo 'De este modo exponemos el puerto en el que se encuentra el servidor flask, para acceder externamente (navegador)'
-kubectl port-forward svc/flask 5000:5000
-
-echo 'Acceder a:   http://localhost:5000/flights/delays/predict_kafka'
 ```
+
+Una vez se ha ejecutado todo correctamente, exponemos el puerto en el que se encuentra el servidor flask, para acceder externamente (navegador) mediante el siguiente comando:
+
+```
+kubectl port-forward svc/flask 5000:5000
+```
+
 ### 🗂 Resultado
 
+Finalmente observamos en el navegador el funcionamiento de la práctica tras ser desplegada con kubernetes:
+
+<p align="center">
+<img src="" title="kubernetes" height="300" />
+</p>
+
+Para finalizar borramos el despliegue y paramos, o en caso deseado, borramos el cluster de kubernetes:
 ```
-echo 'Borramos el despliegue y hacemos stop a minikube, si quieres hacer remove: minikube delete'
 kubectl delete deployment,pods,svc --all
 minikube stop
+minikube delete
 ```
-
 
 ## Desplegar el escenario completo en Google Cloud/AWS (1 pto)
