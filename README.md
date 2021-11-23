@@ -183,7 +183,7 @@ Para habilitar el cálculo de predicciones en tiempo real vamos a utilizar Spark
 ```
 echo 'Abrimos la aplicación'
 intellij-idea-community
-echo 'Ejecutar el proyecto'
+echo 'Configurar los ajustes del IDE, compilar y ejecutar el proyecto'
 ```
 
 <p align="center">
@@ -272,12 +272,15 @@ sudo service mongod stop
 ```
 + Crear la imagen de spark:
 ```
+docker build -t nacho/spark ./spark
 ```
 + Crear la imagen de flask:
 ```
+docker build -t nacho/flask ./flask
 ```
 + Crear la imagen de mongo:
 ```
+docker build -t nacho/mongo_data ./mongo_data
 ```
 + Genera una instancia de la imagen de mongo:
 ```
@@ -320,15 +323,15 @@ Una vez instalado Docker Compose se ha construido las imágenes de flask, spark 
 
 ```
 cd flask
-docker build -t ubuntu/flask .
+docker build -t nacho/flask .
 cd ..
 
 cd spark
-docker build -t ubuntu/spark .
+docker build -t nacho/spark .
 cd ..
 
 cd mongo_data
-docker build -t ubuntu/mongo_data .
+docker build -t nacho/mongo_data .
 ```
 Finalmente con el siguiente comando construimos, creamos, iniciamos y conectamos los contenedores para ejecutarlos en un servicio.
 ```
