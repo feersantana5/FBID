@@ -1,0 +1,7 @@
+#docker pull wurstmeister/kafka
+
+#HOW TO USE:
+#https://hub.docker.com/r/wurstmeister/kafka
+
+
+docker run --name kafka -p 9092:9092 -e KAFKA_ADVERTISED_LISTENERS='PLAINTEXT://kafka:9092' -e KAFKA_LISTENERS='PLAINTEXT://kafka:9092' -e KAFKA_CREATE_TOPICS='"flight_delay_classification_request:1:1"' -e KAFKA_ZOOKEEPER_CONNECT='zookeeper:2181' -h kafka wurstmeister/kafka:2.12-2.3.0
