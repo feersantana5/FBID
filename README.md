@@ -266,6 +266,16 @@ Finalmente hemos comprobado en el navegador que la ejecución funciona correctam
 
 En este apartado hemos dockerizado, es decir, creado contenedores ligeros de los servicios que forman parte de la arquitectura para facilitar así su ejecución en cualquier máquina con Docker instalado, independientemente del sistema operativo que la máquina tenga por debajo, facilitando así también los despliegues. Para ello, hemos creado un DockerFile para cada servicio:
 
+<p align="center">
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2016.png" title="Docker" height="300" />
+</p>
+
+### Resultado
+
+<p align="center">
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2015.png" title="Docker result" height="300" />
+</p>
+
 ## ✅ Desplegar el escenario completo usando docker-compose (1 pto)
 
 En primer lugar hemos instalado el Docker Compose:
