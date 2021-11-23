@@ -249,7 +249,7 @@ $ mongo
 
 En el consumidor de kafka podemos ver los mensajes enviados:
 <p align="center">
-<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2010.png" title="Kafka" width="500" height="150"/>
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2010.png" title="Kafka" height="150"/>
 </p>
 
 ## ✅ Dockerizar cada uno de los servicios que componen la arquitectura completa (1 pto)
