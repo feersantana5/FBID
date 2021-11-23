@@ -264,13 +264,44 @@ Finalmente hemos comprobado en el navegador que la ejecución funciona correctam
 
 ## ✅ Dockerizar cada uno de los servicios que componen la arquitectura completa (1 pto)
 
-En este apartado hemos dockerizado, es decir, creado contenedores ligeros de los servicios que forman parte de la arquitectura para facilitar así su ejecución en cualquier máquina con Docker instalado, independientemente del sistema operativo que la máquina tenga por debajo, facilitando así también los despliegues. Para ello, hemos creado un DockerFile para cada servicio:
+En este apartado hemos dockerizado, es decir, creado contenedores ligeros de los servicios que forman parte de la arquitectura para facilitar así su ejecución en cualquier máquina con Docker instalado, independientemente del sistema operativo que la máquina tenga por debajo, facilitando así también los despliegues. Para ello, hemos creado un DockerFile en cada servicio para poder crear las imágenes personalizadas de Docker. Hemos creado las imágenes de spark, flask y mongo. Las imágenes de zookeeper y kafka corresponden a wurstmeister/zookeeper y wurstmeister/kafka:2.12-2.3.0. Los pasos seguidos han sido:
+
++ Parar mongo:
+```
+sudo service mongod stop
+```
++ Crear la imagen de spark:
+```
+```
++ Crear la imagen de flask:
+```
+```
++ Crear la imagen de mongo:
+```
+```
++ Genera una instancia de la imagen de mongo:
+```
+```
++ Genera una instancia de la imagen de zookeeper:
+```
+```
++ Genera una instancia de la imagen de kafka:
+```
+```
++ Genera una instancia de la imagen de spark:
+```
+```
++ Genera una instancia de la imagen de flask:
+```
+```
 
 <p align="center">
 <img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2016.png" title="Docker" height="300" />
 </p>
 
 ### 🗂 Resultado
+
+Finalmente observamos en el navegador el funcionamiento de aplicación con los contenedores desplegados:
 
 <p align="center">
 <img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2015.png" title="Docker result" height="300" />
