@@ -442,7 +442,11 @@ minikube stop
 minikube delete
 ```
 
-## ✅ Desplegar el escenario completo en Google Cloud/AWS (1 pto)
-Se ha creado una instancia de Ubuntu 20.04 LTS en Google Cloud que se ha preparado para desplegar la práctica con kubernetes al igual que se realizó en el apartado anterior, para mayor facilidad en la interacción y coprobación de resultados se le ha instalado una interfaz gráfica de usuario.
+## ✅ Desplegar el escenario completo en Google Cloud (1 pto)
+Se ha creado una instancia de Ubuntu 20.04 LTS en Google Cloud que se ha preparado para desplegar la práctica con kubernetes al igual que se realizó en el apartado anterior. Para mayor facilidad en la interacción y comprobación de resultados se le ha instalado una interfaz gráfica de usuario.
+
+<p align="center">
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2017.png" title="Google Cloud" height="300" />
+</p>
 
 
