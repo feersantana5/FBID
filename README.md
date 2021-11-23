@@ -171,7 +171,9 @@ cd ~/kafka/kafka_2.12-2.3.0/
 bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic flight_delay_classification_request --from-beginning
 ```
 
-IMAGEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+<p align="center">
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2012.png" title="Kafka"/>
+</p>
 
 ### 🔮 Ejecutar el predictor
 Para habilitar el cálculo de predicciones en tiempo real vamos a utilizar Spark Streaming y el modelo predictivo que hemos entrenado anteriormente. Hemos ejecutado el predictor de vuelos de 2 maneras distintas, con:
@@ -188,6 +190,12 @@ echo 'Ejecutar el proyecto'
 <img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%204.png" title="IntelliJ" height="300" />
 </p>
 
+Finalmente hemmos comprobado en el navegador http://localhost:5000/flights/delays/predict_kafka que funciona correctamente:
+
+<p align="center">
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%209.png" title="IntelliJ" height="300" />
+</p>
+
  + Spark Submit
 
 ## ✅ Ejecución del job de predicción con Spark Submit en vez de IntelliJ  (1 pto)
@@ -199,7 +207,7 @@ cd ~/practica_big_data_2019/flight_prediction
 . ~/fbid_venv/bin/activate
 sbt compile
 sbt package
-```
+``` 
 
 ```
 cd ~/practica_big_data_2019/flight_prediction/target/scala-2.12
@@ -217,6 +225,10 @@ cd ~/practica_big_data_2019/resources/web
 python predict_flask.py
 ```
 
+<p align="center">
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%207.png" title="Servidor" height="400"/>
+</p>
+
 ### 🗂 Resultados
 Finalmente, obtenemos la respuesta en el navegador. A través de la consola de Javascript podemos monitorizar el proceso.
 
@@ -231,8 +243,14 @@ $ mongo
   > use agile_data_science;
   >db.flight_delay_classification_response.find();
 ```
-IMAGEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+<p align="center">
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2011.png" title="Mongo"/>
+</p>
 
+En el consumidor de kafka podemos ver los mensajes enviados:
+<p align="center">
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2010.png" title="Kafka"/>
+</p>
 
 ## ✅ Dockerizar cada uno de los servicios que componen la arquitectura completa (1 pto)
 
