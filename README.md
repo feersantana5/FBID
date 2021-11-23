@@ -324,7 +324,7 @@ kubectl version
 sudo usermod -aG docker $USER && newgrp docker
 minikube start
 ```
-+ kompose es una herramienta que nos permite con el archivo docker-compose del apartado, la implementación en clústeres de Kubernetes convirtiendo el recurso autoáticamente.
++ kompose es una herramienta que nos permite con el archivo docker-compose del apartado anterior, la implementación en clústeres de Kubernetes convirtiendo el recurso autoáticamente.
 ```
 #Descargamos kompose
 echo 'Descargamos kompose'
