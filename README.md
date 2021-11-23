@@ -242,7 +242,7 @@ $ mongo
   >db.flight_delay_classification_response.find();
 ```
 <p align="center">
-<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2011.png" title="Mongo" height="300"/>
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2011.png" title="Mongo" weight="400" height="300"/>
 </p>
 
 En el consumidor de kafka podemos ver los mensajes enviados:
@@ -366,19 +366,19 @@ docker-compose up
 Verificamos que las imagenes hayan sido descargadas por docker:
 
 <p align="center">
-<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2021.png" title="Docker compose" height="300" />
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2021.png" title="Docker compose" weight="300" height="100" />
 </p>
 
 Verificamos que los contenedores se han creado:
 
 <p align="center">
-<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2022.png" title="Docker compose" height="300" />
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2022.png" title="Docker compose" weight="200" height="100" />
 </p>
 
 Finalmente observamos en el navegador el funcionamiento de la práctica tras ser desplegada con el docker-compose:
 
 <p align="center">
-<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2020.png" title="Docker compose" height="300" />
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2020.png" title="Docker compose"  height="300" />
 </p>
 
 ## ✅ Desplegar el escenario completo usando kubernetes (2 ptos)
@@ -412,7 +412,7 @@ sudo usermod -aG docker $USER && newgrp docker
 minikube start
 ```
 <p align="center">
-<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2023.png" title="Minikube" height="300" />
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2023.png" title="Minikube" height="200" />
 </p>
 
 + kompose es una herramienta que nos permite con el archivo docker-compose del apartado anterior, la implementación en clústeres de Kubernetes convirtiendo el recurso autoáticamente.
