@@ -480,4 +480,9 @@ Se ha creado una instancia de Ubuntu 20.04 LTS en Google Cloud que se ha prepara
 <img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2017.png" title="Google Cloud" height="300" />
 </p>
 
+<p align="center">
+<img src="https://github.com/feersantana5/FBID/blob/main/images/Imagen%2026.png" title="Google Cloud" height="300" />
+</p>
+
+
 
