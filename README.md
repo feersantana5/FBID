@@ -1,6 +1,5 @@
 # FBID
 Para la ejecución de la práctica se ha desplegado una máquina virtual con la versión 20.04 de Ubuntu. </br>
-Ignacio Gómez Gómez y Fernando Santana Falcón. </br>
 https://github.com/feersantana5/FBID </br>
 
 
